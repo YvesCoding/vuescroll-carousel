@@ -1,6 +1,6 @@
 <template>
-  <div class="carousel-container" :class="{'vertical': type != 'h'}">
-    <vue-scroll class="carousel-vs" :ops="ops" ref="vs" @handle-scroll-complete="hSC" @handle-resize="hs">
+  <div ref="container" class="carousel-container" :class="{'vertical': type != 'h'}">
+    <vue-scroll class="carousel-vs" :ops="ops" ref="vs" @handle-scroll-complete="hSC" @handle-resize="handleResize">
       <slot>
       </slot>
     </vue-scroll>
@@ -127,6 +127,7 @@ export default {
       children = this.children();
       this.realNodesLen = children.length;
       this.setChildrenSize();
+      this.$refs['vs'].refresh();
       this.$nextTick().then(() => {
         this.goToPage(this.internalActiveIndex, false, true);
         this.setAutoPlay();
@@ -153,15 +154,16 @@ export default {
       this.fixPages();
     },
     // handle scroll
-    hs() {
+    handleResize() {
       this.setChildrenSize();
       this.$nextTick().then(() => {
         this.goToPage(this.internalActiveIndex, false);
       });
     },
     setChildrenSize() {
-      const height = this.parent.clientHeight;
-      const width = this.parent.clientWidth;
+      const container = this.$refs['container'];
+      const height = container.clientHeight;
+      const width = container.clientWidth;
 
       this.children().forEach(c => {
         c.style.height = height + 'px';

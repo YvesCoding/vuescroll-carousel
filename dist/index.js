@@ -611,7 +611,7 @@ if (typeof window != 'undefined' && window.Vue) {
   window.Vue.use(__WEBPACK_IMPORTED_MODULE_0__carousel___default.a);
 }
 
-__WEBPACK_IMPORTED_MODULE_0__carousel___default.a.version = '0.0.1';
+__WEBPACK_IMPORTED_MODULE_0__carousel___default.a.version = '0.0.2';
 
 /* harmony default export */ __webpack_exports__["default"] = (__WEBPACK_IMPORTED_MODULE_0__carousel___default.a);
 
@@ -798,6 +798,7 @@ if (!__WEBPACK_IMPORTED_MODULE_2_vue___default.a.prototype.$vuescrollConfig) {
       children = this.children();
       this.realNodesLen = children.length;
       this.setChildrenSize();
+      this.$refs['vs'].refresh();
       this.$nextTick().then(function () {
         _this.goToPage(_this.internalActiveIndex, false, true);
         _this.setAutoPlay();
@@ -827,7 +828,7 @@ if (!__WEBPACK_IMPORTED_MODULE_2_vue___default.a.prototype.$vuescrollConfig) {
     },
 
     // handle scroll
-    hs: function hs() {
+    handleResize: function handleResize() {
       var _this2 = this;
 
       this.setChildrenSize();
@@ -836,8 +837,9 @@ if (!__WEBPACK_IMPORTED_MODULE_2_vue___default.a.prototype.$vuescrollConfig) {
       });
     },
     setChildrenSize: function setChildrenSize() {
-      var height = this.parent.clientHeight;
-      var width = this.parent.clientWidth;
+      var container = this.$refs['container'];
+      var height = container.clientHeight;
+      var width = container.clientWidth;
 
       this.children().forEach(function (c) {
         c.style.height = height + 'px';
@@ -2042,6 +2044,7 @@ module.exports = Component.exports
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
+    ref: "container",
     staticClass: "carousel-container",
     class: {
       'vertical': _vm.type != 'h'
@@ -2054,7 +2057,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     },
     on: {
       "handle-scroll-complete": _vm.hSC,
-      "handle-resize": _vm.hs
+      "handle-resize": _vm.handleResize
     }
   }, [_vm._t("default")], 2), _vm._v(" "), (_vm.indicator) ? _vm._t("indicator", [_c('TheIndicator', {
     attrs: {
