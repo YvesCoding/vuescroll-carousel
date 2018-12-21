@@ -4,7 +4,8 @@
   <a href="https://www.npmjs.com/package/vuescroll-carousel"><img src="https://img.shields.io/npm/l/vuescroll-carousel.svg" alt="License"></a> 
 <a href="https://github.com/YvesCoding/vuescroll"><img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square" alt="prettier"></a>
 </p>
-> ## Introduction
+
+## Introduction
 
 vuescroll-carousel is a carousel plugin based on **^vuescroll@4.9.0**.
 
