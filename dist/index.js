@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("vue"), require("vuescroll/dist/vuescroll-slide"));
+		module.exports = factory(require("vue"));
 	else if(typeof define === 'function' && define.amd)
-		define(["vue", "vuescroll/dist/vuescroll-slide"], factory);
+		define(["vue"], factory);
 	else if(typeof exports === 'object')
-		exports["vuescroll-carousel"] = factory(require("vue"), require("vuescroll/dist/vuescroll-slide"));
+		exports["vuescroll-carousel"] = factory(require("vue"));
 	else
-		root["vuescroll-carousel"] = factory(root["Vue"], root["vuescroll"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_71__, __WEBPACK_EXTERNAL_MODULE_72__) {
+		root["vuescroll-carousel"] = factory(root["Vue"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_71__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -73,7 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/dist/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 73);
+/******/ 	return __webpack_require__(__webpack_require__.s = 72);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -611,7 +611,7 @@ if (typeof window != 'undefined' && window.Vue) {
   window.Vue.use(__WEBPACK_IMPORTED_MODULE_0__carousel___default.a);
 }
 
-__WEBPACK_IMPORTED_MODULE_0__carousel___default.a.version = '0.0.2';
+__WEBPACK_IMPORTED_MODULE_0__carousel___default.a.version = '0.0.5';
 
 /* harmony default export */ __webpack_exports__["default"] = (__WEBPACK_IMPORTED_MODULE_0__carousel___default.a);
 
@@ -655,12 +655,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_defineProperty___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_defineProperty__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue__ = __webpack_require__(71);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vuescroll_dist_vuescroll_slide__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vuescroll_dist_vuescroll_slide___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vuescroll_dist_vuescroll_slide__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_timers__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_timers___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_timers__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__TheIndicator__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__TheIndicator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__TheIndicator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_timers__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_timers___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_timers__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__TheIndicator__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__TheIndicator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__TheIndicator__);
 
 
 //
@@ -680,12 +678,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-
-
-var components = { TheIndicator: __WEBPACK_IMPORTED_MODULE_5__TheIndicator___default.a };
-if (!__WEBPACK_IMPORTED_MODULE_2_vue___default.a.prototype.$vuescrollConfig) {
-  components.vueScroll = __WEBPACK_IMPORTED_MODULE_3_vuescroll_dist_vuescroll_slide___default.a;
-}
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -727,6 +719,9 @@ if (!__WEBPACK_IMPORTED_MODULE_2_vue___default.a.prototype.$vuescrollConfig) {
       default: 1
     }
   },
+  components: {
+    TheIndicator: __WEBPACK_IMPORTED_MODULE_4__TheIndicator___default.a
+  },
   watch: {
     currentIndex: function currentIndex(newValue) {
       this.goToPage(newValue);
@@ -735,7 +730,6 @@ if (!__WEBPACK_IMPORTED_MODULE_2_vue___default.a.prototype.$vuescrollConfig) {
       this.$emit('update:currentIndex', newValue);
     }
   },
-  components: components,
   created: function created() {
     this.internalActiveIndex = this.currentIndex;
   },
@@ -743,7 +737,7 @@ if (!__WEBPACK_IMPORTED_MODULE_2_vue___default.a.prototype.$vuescrollConfig) {
     this.refresh();
   },
   destroyed: function destroyed() {
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4_timers__["clearInterval"])(this.autoPlayInerval);
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_timers__["clearInterval"])(this.autoPlayInerval);
   },
 
   computed: {
@@ -765,6 +759,7 @@ if (!__WEBPACK_IMPORTED_MODULE_2_vue___default.a.prototype.$vuescrollConfig) {
           opacity: 0
         },
         vuescroll: {
+          mode: 'slide',
           paging: true,
           scroller: {
             bouncing: false
@@ -862,10 +857,10 @@ if (!__WEBPACK_IMPORTED_MODULE_2_vue___default.a.prototype.$vuescrollConfig) {
     setAutoPlay: function setAutoPlay() {
       var _this3 = this;
 
-      __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4_timers__["clearInterval"])(this.autoPlayInerval);
+      __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_timers__["clearInterval"])(this.autoPlayInerval);
 
       if (this.autoPlay) {
-        this.autoPlayInerval = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4_timers__["setInterval"])(function () {
+        this.autoPlayInerval = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_timers__["setInterval"])(function () {
           _this3.$refs['vs'].goToPage(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_defineProperty___default()({}, _this3.axis, _this3.internalActiveIndex + _this3.halfClonedNodesNum + 1), true);
         }, this.intervalTime);
       }
@@ -2109,12 +2104,6 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_71__;
 
 /***/ }),
 /* 72 */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE_72__;
-
-/***/ }),
-/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(29);

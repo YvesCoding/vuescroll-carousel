@@ -12,15 +12,9 @@
 
 <script>
 import Vue from 'vue';
-import vuescroll from 'vuescroll/dist/vuescroll-slide';
 import { setInterval, clearInterval } from 'timers';
 
 import TheIndicator from './TheIndicator';
-
-const components = { TheIndicator };
-if (!Vue.prototype.$vuescrollConfig) {
-  components.vueScroll = vuescroll;
-}
 
 export default {
   props: {
@@ -62,6 +56,9 @@ export default {
       default: 1
     }
   },
+  components: {
+    TheIndicator
+  },
   watch: {
     currentIndex(newValue) {
       this.goToPage(newValue);
@@ -70,7 +67,6 @@ export default {
       this.$emit('update:currentIndex', newValue);
     }
   },
-  components,
   created() {
     this.internalActiveIndex = this.currentIndex;
   },
@@ -99,6 +95,7 @@ export default {
           opacity: 0
         },
         vuescroll: {
+          mode: 'slide',
           paging: true,
           scroller: {
             bouncing: false
