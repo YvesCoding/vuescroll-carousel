@@ -118,17 +118,17 @@ export default {
     // ------------- API ------------
     refresh() {
       let children = this.children();
-      this.removeNodes(children, i => i.isCloned);
+      this.removeNodes(children, (i) => i.isCloned);
       this.realNodesWithoutCloneLen = children.length;
       this.cloneNodes();
       children = this.children();
       this.realNodesLen = children.length;
-      this.setChildrenSize();
       this.$refs['vs'].refresh();
-      this.$nextTick().then(() => {
+      setTimeout(() => {
+        this.setChildrenSize();
         this.goToPage(this.internalActiveIndex, false, true);
         this.setAutoPlay();
-      });
+      }, 1);
     },
     goToPage(pageindex, animate = true, force = false) {
       if (pageindex == this.internalActiveIndex && !force) return;
@@ -144,7 +144,7 @@ export default {
     // ---------- -- API END ---------
 
     children() {
-      return Array.from(this.parent.children).filter(i => !i.isResizeElm);
+      return Array.from(this.parent.children).filter((i) => !i.isResizeElm);
     },
     // handle scroll complete
     hSC() {
@@ -162,7 +162,7 @@ export default {
       const height = container.clientHeight;
       const width = container.clientWidth;
 
-      this.children().forEach(c => {
+      this.children().forEach((c) => {
         c.style.height = height + 'px';
         c.style.width = width + 'px';
       });
@@ -204,8 +204,8 @@ export default {
       const children = this.children();
       if (children.length > 1 && this.loop) {
         // find start and end elm
-        const firstChild = this.getFrist(children, i => !i.isResizeElm);
-        const lastChild = this.getLast(children, i => !i.isResizeElm);
+        const firstChild = this.getFrist(children, (i) => !i.isResizeElm);
+        const lastChild = this.getLast(children, (i) => !i.isResizeElm);
         const clonedLastChild = lastChild.cloneNode(true);
         const clonedFirstChild = firstChild.cloneNode(true);
 
@@ -216,7 +216,7 @@ export default {
       }
     },
     removeNodes(nodes, filter) {
-      Array.from(nodes).forEach(i => {
+      Array.from(nodes).forEach((i) => {
         if (filter(i)) {
           i.parentNode.removeChild(i);
         }

@@ -611,7 +611,7 @@ if (typeof window != 'undefined' && window.Vue) {
   window.Vue.use(__WEBPACK_IMPORTED_MODULE_0__carousel___default.a);
 }
 
-__WEBPACK_IMPORTED_MODULE_0__carousel___default.a.version = '0.0.5';
+__WEBPACK_IMPORTED_MODULE_0__carousel___default.a.version = '0.0.7';
 
 /* harmony default export */ __webpack_exports__["default"] = (__WEBPACK_IMPORTED_MODULE_0__carousel___default.a);
 
@@ -792,12 +792,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.cloneNodes();
       children = this.children();
       this.realNodesLen = children.length;
-      this.setChildrenSize();
       this.$refs['vs'].refresh();
-      this.$nextTick().then(function () {
+      setTimeout(function () {
+        _this.setChildrenSize();
         _this.goToPage(_this.internalActiveIndex, false, true);
         _this.setAutoPlay();
-      });
+      }, 1);
     },
     goToPage: function goToPage(pageindex) {
       var animate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
