@@ -11,6 +11,10 @@ vuescroll-carousel is a carousel plugin based on **^vuescroll@4.9.0**.
 
 It seems like [`swiper`](https://github.com/nolimits4web/swiper). But it is made by [`vuescroll`](https://github.com/YvesCoding/vuescroll). You can look through something on this just like PPT.
 
+## Demo
+
+Please see the **Demo** fold of this repo.
+
 ## Get Started
 
 1. You should install `Vue@2.x` , `vuescroll@4.9.0+` and `vuescroll-carousel` , registry the plugins.
