@@ -7,30 +7,73 @@
     <title>Document</title>
     <link rel="stylesheet" href="../dist/index.css" />
     <link rel="stylesheet" href="./vuescroll.css" />
-    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="./vue.js"></script>
     <script src="./vuescroll-slide.js"></script>
     <script src="../dist/index.js"></script>
     <style>
       #app {
-        width: 400px;
+        width: 100%;
         height: 400px;
+        background-color: #cecece;
+      }
+      .wrap {
+        height: 400px;
+        display: flex;
       }
       .parent {
-        width: 100%;
+        width: 50%;
         height: 100%;
+        flex-basis: 50%;
       }
       .child {
         width: 100%;
         height: 100%;
+        line-height: 400px;
+        background-color: #fff;
+        text-align: center;
+        border: 1xp solid #000;
+        text-shadow: 0px 3px 3px #975a00;
+        -webkit-text-shadow: 0px 3px 3px #975a00;
+        -moz-text-shadow: 0px 3px 3px #975a00;
+        font-family: '微软雅黑 Bold', '微软雅黑 Regular', '微软雅黑';
+        font-weight: 700;
+        font-style: normal;
+        font-size: 48px;
+        color: #ff9900;
+        vertical-align: text-bottom;
+      }
+      h2 {
+        text-align: center;
+      }
+
+      header p {
+        text-align: center;
       }
     </style>
   </head>
   <body>
     <div id="app">
-      <div class="parent">
-        <vuescroll-carousel type="v">
-          <div class="child" v-for="i in 5" :key="i">{{ i }}</div>
-        </vuescroll-carousel>
+      <header>
+        <h2>
+          GitHub Address & Usage:
+          <a href="https://github.com/YvesCoding/vuescroll-carousel#get-started"
+            >vuescroll-carousel</a
+          >
+        </h2>
+      </header>
+      <div class="wrap">
+        <div class="parent">
+          <h2>Vertical</h2>
+          <vuescroll-carousel type="v">
+            <div class="child" v-for="i in 5" :key="i">{{ i }}</div>
+          </vuescroll-carousel>
+        </div>
+        <div class="parent">
+          <h2>Horizontal</h2>
+          <vuescroll-carousel>
+            <div class="child" v-for="i in 5" :key="i">{{ i }}</div>
+          </vuescroll-carousel>
+        </div>
       </div>
     </div>
   </body>
