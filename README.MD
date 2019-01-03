@@ -52,8 +52,8 @@ Vue.use(vuescrollCarousel);
 | PropName     | Default |                                                                               Description |
 | ------------ | :-----: | ----------------------------------------------------------------------------------------: |
 | type         |    h    | `h` or `v`. `h` means scrolling on horizontal direction and `v` is on vertical direction. |
-| loop         |  tree   |                         Whether carousel is connected between the end and the end or not. |
-| autoPlay     |  tree   |                                           whether play the carousel automatically or not. |
+| loop         |  true   |                         Whether carousel is connected between the end and the end or not. |
+| autoPlay     |  true   |                                           whether play the carousel automatically or not. |
 | intervalTime |  1000   |                          Interval time of auto-play, only enable when autoPlay is enable. |
 | playSpeed    |   300   |                                                                               play speed. |
 | indicator    |  true   |                                                                     show indicator or not |
