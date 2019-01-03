@@ -1,11 +1,30 @@
 <template>
-  <div ref="container" class="carousel-container" :class="{'vertical': type != 'h'}">
-    <vue-scroll class="carousel-vs" :ops="ops" ref="vs" @handle-scroll-complete="hSC" @handle-resize="handleResize">
+  <div
+    ref="container"
+    class="carousel-container"
+    :class="{'vertical': type != 'h'}"
+    style="width:100;height:100%;position:relative"
+  >
+    <vue-scroll
+      class="carousel-vs"
+      :ops="ops"
+      ref="vs"
+      @handle-scroll-complete="hSC"
+      @handle-resize="handleResize"
+    >
       <slot>
       </slot>
     </vue-scroll>
-    <slot name="indicator" v-if="indicator">
-      <TheIndicator @dot-click="goToPage" :type="type" :num="realNodesWithoutCloneLen" :currenIndex="internalActiveIndex" />
+    <slot
+      name="indicator"
+      v-if="indicator"
+    >
+      <TheIndicator
+        @dot-click="goToPage"
+        :type="type"
+        :num="realNodesWithoutCloneLen"
+        :currenIndex="internalActiveIndex"
+      />
     </slot>
   </div>
 </template>
@@ -89,8 +108,7 @@ export default {
   },
   data() {
     return {
-      a: 0,
-      ops: {
+       ops: {
         bar: {
           opacity: 0
         },
@@ -123,7 +141,6 @@ export default {
       this.cloneNodes();
       children = this.children();
       this.realNodesLen = children.length;
-      this.$refs['vs'].refresh();
       setTimeout(() => {
         this.setChildrenSize();
         this.goToPage(this.internalActiveIndex, false, true);
@@ -252,10 +269,7 @@ export default {
 </script>
 
 <style lang="scss">
-.carousel-container {
-  width: 100%;
-  height: 100%;
-  position: relative;
+.carousel-container { 
   & > .carousel-vs {
     & > .__panel {
       display: flex;

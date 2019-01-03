@@ -1,6 +1,6 @@
 {
   "name": "vuescroll-carousel",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A carousel plugin based on vuescroll.",
   "main": "dist/index.js",
   "scripts": {
