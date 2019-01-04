@@ -1,23 +1,23 @@
-<h1 align="center">vuescroll-carousel</h1>
-<p align="center">
+# vuescroll-carousel
+
+<p>
   <a href="https://www.npmjs.com/package/vuescroll-carousel"><img src="https://img.shields.io/npm/v/vuescroll-carousel.svg" alt="Version"></a>  
-  <a href="https://www.npmjs.com/package/vuescroll-carousel"><img src="https://img.shields.io/npm/l/vuescroll-carousel.svg" alt="License"></a> 
-<a href="https://github.com/YvesCoding/vuescroll"><img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square" alt="prettier"></a>
+  <a href="https://www.npmjs.com/package/vuescroll-carousel"><img src="https://img.shields.io/npm/l/vuescroll-carousel.svg" alt="License"></a>
 </p>
 
 ## Introduction
 
 vuescroll-carousel is a carousel plugin based on **^vuescroll@4.9.0**.
 
-It seems like [`swiper`](https://github.com/nolimits4web/swiper). But it is made by [`vuescroll`](https://github.com/YvesCoding/vuescroll). You can look through something on this just like PPT.
+It seems like [`swiper`](https://github.com/nolimits4web/swiper). You can see guide in below.
 
 ## Demo
 
-Please see the **Demo** fold of this repo.
+See the **Demo** fold of this repo.
 
 ## Get Started
 
-1. You should install `Vue@2.x` , `vuescroll@4.9.0+` and `vuescroll-carousel` , registry the plugins.
+1. You should install `Vue@2.x` , `vuescroll@4.9.0+` and `vuescroll-carousel` , and registry the plugins.
 
 ```bash
  npm i vue vuescroll vuescroll-carousel -S
@@ -37,7 +37,7 @@ Vue.use(vuescroll);
 Vue.use(vuescrollCarousel);
 ```
 
-2. Wrap the element you want to be in the carousel, and thats all!
+2. Wrap the element and that's all.
 
 ```html
 <vuescroll-carousel>
