@@ -13,7 +13,9 @@ It seems like [`swiper`](https://github.com/nolimits4web/swiper). You can see th
 
 ## Demo
 
-See the **Demo** fold of this repo.
+- [Live Demo](https://codepen.io/wangyi7099/pen/OrQoXK)
+
+- See the **Demo** fold of this repo.
 
 ## Get Started
 
