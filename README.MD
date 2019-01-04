@@ -9,7 +9,7 @@
 
 vuescroll-carousel is a carousel plugin based on **^vuescroll@4.9.0**.
 
-It seems like [`swiper`](https://github.com/nolimits4web/swiper). You can see guide below.
+It seems like [`swiper`](https://github.com/nolimits4web/swiper). You can see the guide below.
 
 ## Demo
 
