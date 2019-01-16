@@ -611,7 +611,7 @@ if (typeof window != 'undefined' && window.Vue) {
   window.Vue.use(__WEBPACK_IMPORTED_MODULE_0__carousel___default.a);
 }
 
-__WEBPACK_IMPORTED_MODULE_0__carousel___default.a.version = '0.0.7';
+__WEBPACK_IMPORTED_MODULE_0__carousel___default.a.version = '0.0.9';
 
 /* harmony default export */ __webpack_exports__["default"] = (__WEBPACK_IMPORTED_MODULE_0__carousel___default.a);
 
@@ -661,6 +661,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__TheIndicator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__TheIndicator__);
 
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -753,7 +772,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   data: function data() {
     return {
-      a: 0,
       ops: {
         bar: {
           opacity: 0
@@ -793,7 +811,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.cloneNodes();
       children = this.children();
       this.realNodesLen = children.length;
-      this.$refs['vs'].refresh();
       setTimeout(function () {
         _this.setChildrenSize();
         _this.goToPage(_this.internalActiveIndex, false, true);
@@ -2039,6 +2056,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "carousel-container",
     class: {
       'vertical': _vm.type != 'h'
+    },
+    staticStyle: {
+      "width": "100",
+      "height": "100%",
+      "position": "relative"
     }
   }, [_c('vue-scroll', {
     ref: "vs",
