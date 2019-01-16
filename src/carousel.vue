@@ -119,6 +119,7 @@ export default {
     refresh() {
       let children = this.children();
       this.removeNodes(children, (i) => i.isCloned);
+      children = this.children();
       this.realNodesWithoutCloneLen = children.length;
       this.cloneNodes();
       children = this.children();
@@ -152,10 +153,7 @@ export default {
     },
     // handle scroll
     handleResize() {
-      this.setChildrenSize();
-      this.$nextTick().then(() => {
-        this.goToPage(this.internalActiveIndex, false);
-      });
+      this.refresh();
     },
     setChildrenSize() {
       const container = this.$refs['container'];

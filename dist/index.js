@@ -788,6 +788,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.removeNodes(children, function (i) {
         return i.isCloned;
       });
+      children = this.children();
       this.realNodesWithoutCloneLen = children.length;
       this.cloneNodes();
       children = this.children();
@@ -824,12 +825,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     // handle scroll
     handleResize: function handleResize() {
-      var _this2 = this;
-
-      this.setChildrenSize();
-      this.$nextTick().then(function () {
-        _this2.goToPage(_this2.internalActiveIndex, false);
-      });
+      this.refresh();
     },
     setChildrenSize: function setChildrenSize() {
       var container = this.$refs['container'];
@@ -855,13 +851,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }
     },
     setAutoPlay: function setAutoPlay() {
-      var _this3 = this;
+      var _this2 = this;
 
       __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_timers__["clearInterval"])(this.autoPlayInerval);
 
       if (this.autoPlay) {
         this.autoPlayInerval = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_timers__["setInterval"])(function () {
-          _this3.$refs['vs'].goToPage(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_defineProperty___default()({}, _this3.axis, _this3.internalActiveIndex + _this3.halfClonedNodesNum + 1), true);
+          _this2.$refs['vs'].goToPage(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_defineProperty___default()({}, _this2.axis, _this2.internalActiveIndex + _this2.halfClonedNodesNum + 1), true);
         }, this.intervalTime);
       }
     },
