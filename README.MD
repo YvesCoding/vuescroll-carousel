@@ -67,6 +67,8 @@ Vue.use(vuescrollCarousel);
 | -------- | :--------------------------------------------------------------: | ------------------------------------: |
 | refresh  | refresh the compoennt's status. All states will be recalculated. |                                     - |
 | goToPage |                    Go to the specified page.                     | (pageIndex: Number, animate: Boolean) |
+| prev     |                         go to pre page.                          |
+| next     |                         go to next page.                         |
 
 ## Author
 

@@ -673,25 +673,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -823,8 +804,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
       if (pageindex == this.internalActiveIndex && !force) return;
 
-      pageindex = Math.min(this.realNodesWithoutCloneLen, pageindex);
+      pageindex = Math.min(this.realNodesWithoutCloneLen + 1, Math.max(0, pageindex));
+
       this.$refs['vs'].goToPage(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_defineProperty___default()({}, this.axis, pageindex + this.halfClonedNodesNum), animate);
+    },
+    prev: function prev() {
+      this.goToPage(this.internalActiveIndex - 1, true);
+    },
+    next: function next() {
+      this.goToPage(this.internalActiveIndex + 1, true);
     },
 
     // ---------- -- API END ---------
@@ -859,7 +847,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var page = this.$refs['vs'].getCurrentPage()[this.axis];
         this.internalActiveIndex = page - this.halfClonedNodesNum;
         if (this.internalActiveIndex > this.realNodesWithoutCloneLen) {
-          this.internalActiveIndex = this.loop ? 1 : this.internalActiveIndex;
+          this.internalActiveIndex = this.loop ? 1 : this.realNodesWithoutCloneLen;
         } else if (this.internalActiveIndex < this.halfClonedNodesNum) {
           this.internalActiveIndex = this.realNodesWithoutCloneLen;
         }

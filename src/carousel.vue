@@ -1,30 +1,11 @@
 <template>
-  <div
-    ref="container"
-    class="carousel-container"
-    :class="{'vertical': type != 'h'}"
-    style="width:100;height:100%;position:relative"
-  >
-    <vue-scroll
-      class="carousel-vs"
-      :ops="ops"
-      ref="vs"
-      @handle-scroll-complete="hSC"
-      @handle-resize="handleResize"
-    >
+  <div ref="container" class="carousel-container" :class="{'vertical': type != 'h'}" style="width:100;height:100%;position:relative">
+    <vue-scroll class="carousel-vs" :ops="ops" ref="vs" @handle-scroll-complete="hSC" @handle-resize="handleResize">
       <slot>
       </slot>
     </vue-scroll>
-    <slot
-      name="indicator"
-      v-if="indicator"
-    >
-      <TheIndicator
-        @dot-click="goToPage"
-        :type="type"
-        :num="realNodesWithoutCloneLen"
-        :currenIndex="internalActiveIndex"
-      />
+    <slot name="indicator" v-if="indicator">
+      <TheIndicator @dot-click="goToPage" :type="type" :num="realNodesWithoutCloneLen" :currenIndex="internalActiveIndex" />
     </slot>
   </div>
 </template>
@@ -108,7 +89,7 @@ export default {
   },
   data() {
     return {
-       ops: {
+      ops: {
         bar: {
           opacity: 0
         },
@@ -151,13 +132,23 @@ export default {
     goToPage(pageindex, animate = true, force = false) {
       if (pageindex == this.internalActiveIndex && !force) return;
 
-      pageindex = Math.min(this.realNodesWithoutCloneLen, pageindex);
+      pageindex = Math.min(
+        this.realNodesWithoutCloneLen + 1,
+        Math.max(0, pageindex)
+      );
+
       this.$refs['vs'].goToPage(
         {
           [this.axis]: pageindex + this.halfClonedNodesNum
         },
         animate
       );
+    },
+    prev() {
+      this.goToPage(this.internalActiveIndex - 1, true);
+    },
+    next() {
+      this.goToPage(this.internalActiveIndex + 1, true);
     },
     // ---------- -- API END ---------
 
@@ -187,7 +178,9 @@ export default {
         const page = this.$refs['vs'].getCurrentPage()[this.axis];
         this.internalActiveIndex = page - this.halfClonedNodesNum;
         if (this.internalActiveIndex > this.realNodesWithoutCloneLen) {
-          this.internalActiveIndex = this.loop ? 1 : this.internalActiveIndex;
+          this.internalActiveIndex = this.loop
+            ? 1
+            : this.realNodesWithoutCloneLen;
         } else if (this.internalActiveIndex < this.halfClonedNodesNum) {
           this.internalActiveIndex = this.realNodesWithoutCloneLen;
         }
@@ -267,7 +260,7 @@ export default {
 </script>
 
 <style lang="scss">
-.carousel-container { 
+.carousel-container {
   & > .carousel-vs {
     & > .__panel {
       display: flex;
