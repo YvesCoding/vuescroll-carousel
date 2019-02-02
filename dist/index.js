@@ -97,7 +97,7 @@ $exports.store = store;
 /* 1 */
 /***/ (function(module, exports) {
 
-var core = module.exports = { version: '2.6.0' };
+var core = module.exports = { version: '2.6.1' };
 if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
 
@@ -611,7 +611,7 @@ if (typeof window != 'undefined' && window.Vue) {
   window.Vue.use(__WEBPACK_IMPORTED_MODULE_0__carousel___default.a);
 }
 
-__WEBPACK_IMPORTED_MODULE_0__carousel___default.a.version = '0.0.10';
+__WEBPACK_IMPORTED_MODULE_0__carousel___default.a.version = '0.0.11';
 
 /* harmony default export */ __webpack_exports__["default"] = (__WEBPACK_IMPORTED_MODULE_0__carousel___default.a);
 
@@ -661,6 +661,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__TheIndicator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__TheIndicator__);
 
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -761,7 +780,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           mode: 'slide',
           paging: true,
           scroller: {
-            bouncing: false
+            bouncing: {
+              top: 0,
+              bottom: 0,
+              left: 0,
+              right: 0
+            }
           }
         },
         scrollPanel: {
@@ -2099,7 +2123,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_c('i', {
       staticClass: "dot-item"
     })])
-  }))
+  }), 0)
 },staticRenderFns: []}
 
 /***/ }),

@@ -1,11 +1,30 @@
 <template>
-  <div ref="container" class="carousel-container" :class="{'vertical': type != 'h'}" style="width:100;height:100%;position:relative">
-    <vue-scroll class="carousel-vs" :ops="ops" ref="vs" @handle-scroll-complete="hSC" @handle-resize="handleResize">
+  <div
+    ref="container"
+    class="carousel-container"
+    :class="{'vertical': type != 'h'}"
+    style="width:100;height:100%;position:relative"
+  >
+    <vue-scroll
+      class="carousel-vs"
+      :ops="ops"
+      ref="vs"
+      @handle-scroll-complete="hSC"
+      @handle-resize="handleResize"
+    >
       <slot>
       </slot>
     </vue-scroll>
-    <slot name="indicator" v-if="indicator">
-      <TheIndicator @dot-click="goToPage" :type="type" :num="realNodesWithoutCloneLen" :currenIndex="internalActiveIndex" />
+    <slot
+      name="indicator"
+      v-if="indicator"
+    >
+      <TheIndicator
+        @dot-click="goToPage"
+        :type="type"
+        :num="realNodesWithoutCloneLen"
+        :currenIndex="internalActiveIndex"
+      />
     </slot>
   </div>
 </template>
@@ -97,7 +116,12 @@ export default {
           mode: 'slide',
           paging: true,
           scroller: {
-            bouncing: false
+            bouncing: {
+              top: 0,
+              bottom: 0,
+              left: 0,
+              right: 0
+            }
           }
         },
         scrollPanel: {
@@ -117,7 +141,7 @@ export default {
     // ------------- API ------------
     refresh() {
       let children = this.children();
-      this.removeNodes(children, (i) => i.isCloned);
+      this.removeNodes(children, i => i.isCloned);
       children = this.children();
       this.realNodesWithoutCloneLen = children.length;
       this.cloneNodes();
@@ -153,7 +177,7 @@ export default {
     // ---------- -- API END ---------
 
     children() {
-      return Array.from(this.parent.children).filter((i) => !i.isResizeElm);
+      return Array.from(this.parent.children).filter(i => !i.isResizeElm);
     },
     // handle scroll complete
     hSC() {
@@ -168,7 +192,7 @@ export default {
       const height = container.clientHeight;
       const width = container.clientWidth;
 
-      this.children().forEach((c) => {
+      this.children().forEach(c => {
         c.style.height = height + 'px';
         c.style.width = width + 'px';
       });
@@ -212,8 +236,8 @@ export default {
       const children = this.children();
       if (children.length > 1 && this.loop) {
         // find start and end elm
-        const firstChild = this.getFrist(children, (i) => !i.isResizeElm);
-        const lastChild = this.getLast(children, (i) => !i.isResizeElm);
+        const firstChild = this.getFrist(children, i => !i.isResizeElm);
+        const lastChild = this.getLast(children, i => !i.isResizeElm);
         const clonedLastChild = lastChild.cloneNode(true);
         const clonedFirstChild = firstChild.cloneNode(true);
 
@@ -224,7 +248,7 @@ export default {
       }
     },
     removeNodes(nodes, filter) {
-      Array.from(nodes).forEach((i) => {
+      Array.from(nodes).forEach(i => {
         if (filter(i)) {
           i.parentNode.removeChild(i);
         }
