@@ -97,7 +97,7 @@ $exports.store = store;
 /* 1 */
 /***/ (function(module, exports) {
 
-var core = module.exports = { version: '2.6.1' };
+var core = module.exports = { version: '2.6.0' };
 if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
 
@@ -611,7 +611,7 @@ if (typeof window != 'undefined' && window.Vue) {
   window.Vue.use(__WEBPACK_IMPORTED_MODULE_0__carousel___default.a);
 }
 
-__WEBPACK_IMPORTED_MODULE_0__carousel___default.a.version = '0.0.11';
+__WEBPACK_IMPORTED_MODULE_0__carousel___default.a.version = '0.0.12';
 
 /* harmony default export */ __webpack_exports__["default"] = (__WEBPACK_IMPORTED_MODULE_0__carousel___default.a);
 
@@ -661,25 +661,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__TheIndicator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__TheIndicator__);
 
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -781,10 +762,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           paging: true,
           scroller: {
             bouncing: {
-              top: 0,
-              bottom: 0,
-              left: 0,
-              right: 0
+              top: 3,
+              bottom: 3,
+              left: 3,
+              right: 3
             }
           }
         },
@@ -849,7 +830,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     // handle scroll complete
     hSC: function hSC() {
-      this.fixPages();
+      var _this2 = this;
+
+      setTimeout(function () {
+        _this2.fixPages();
+      }, 0);
     },
 
     // handle scroll
@@ -880,13 +865,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }
     },
     setAutoPlay: function setAutoPlay() {
-      var _this2 = this;
+      var _this3 = this;
 
       __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_timers__["clearInterval"])(this.autoPlayInerval);
 
       if (this.autoPlay) {
         this.autoPlayInerval = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_timers__["setInterval"])(function () {
-          _this2.$refs['vs'].goToPage(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_defineProperty___default()({}, _this2.axis, _this2.internalActiveIndex + _this2.halfClonedNodesNum + 1), true);
+          _this3.$refs['vs'].goToPage(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_defineProperty___default()({}, _this3.axis, _this3.internalActiveIndex + _this3.halfClonedNodesNum + 1), true);
         }, this.intervalTime);
       }
     },
@@ -2123,7 +2108,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_c('i', {
       staticClass: "dot-item"
     })])
-  }), 0)
+  }))
 },staticRenderFns: []}
 
 /***/ }),
