@@ -611,7 +611,7 @@ if (typeof window != 'undefined' && window.Vue) {
   window.Vue.use(__WEBPACK_IMPORTED_MODULE_0__carousel___default.a);
 }
 
-__WEBPACK_IMPORTED_MODULE_0__carousel___default.a.version = '0.0.12';
+__WEBPACK_IMPORTED_MODULE_0__carousel___default.a.version = '0.0.13';
 
 /* harmony default export */ __webpack_exports__["default"] = (__WEBPACK_IMPORTED_MODULE_0__carousel___default.a);
 
@@ -762,10 +762,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           paging: true,
           scroller: {
             bouncing: {
-              top: 3,
-              bottom: 3,
-              left: 3,
-              right: 3
+              top: 0,
+              bottom: 0,
+              left: 0,
+              right: 0
             }
           }
         },

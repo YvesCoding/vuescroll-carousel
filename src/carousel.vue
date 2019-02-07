@@ -98,10 +98,10 @@ export default {
           paging: true,
           scroller: {
             bouncing: {
-              top: 3,
-              bottom: 3,
-              left: 3,
-              right: 3
+              top: 0,
+              bottom: 0,
+              left: 0,
+              right: 0
             }
           }
         },

@@ -1,6 +1,6 @@
 {
   "name": "vuescroll-carousel",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "A carousel plugin based on vuescroll.",
   "main": "dist/index.js",
   "scripts": {
@@ -18,7 +18,7 @@
   "license": "MIT",
   "peerDependencies": {
     "vue": "2.5.17",
-    "vuescroll": "^4.9.0"
+    "vuescroll": "^4.10.4"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
